@@ -8,8 +8,8 @@ const uint16_t SRDATAPIN = 2;
 
 void setup() {
   DDRD = PORTD | 0b00011100;
-  PORTD = PORTD & (!0b000010000);
-  PORTD = PORTD & (!0b000010000);
+  PORTD = PORTD & (~0b000010000);
+  PORTD = PORTD & (~0b000010000);
 }
 
 void loop() {
@@ -25,13 +25,13 @@ void LedUpdate(uint32_t Data, uint16_t NbDeLed) {
       if (Value) {
         PORTD = PORTD | 0b00000100;
       } else {
-        PORTD = PORTD & (!0b000000100);
+        PORTD = PORTD & (~0b000000100);
       }
       PORTD = PORTD | 0b00010000;
-      PORTD = PORTD & (!0b000010000);
+      PORTD = PORTD & (~0b000010000);
     }
     PORTD = PORTD | 0b00001000;
-    PORTD = PORTD & (!0b000010000);
+    PORTD = PORTD & (~0b000010000);
     mask = mask << 1;
   }
 }
